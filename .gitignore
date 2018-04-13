@@ -1,0 +1,12 @@
+# Locally installed Python dependencies
+**/lib/*
+
+__pycache__
+
+# Prepared lambda package
+*.zip
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
