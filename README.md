@@ -1,6 +1,6 @@
 # Lambdas for zero down-time ECS cluster upgrades
 
-This repository contains two lambdas which facilitate zero downtime removal of container instances from an ECS cluster, for example during scale-ins or rolling cluster updates.
+This repository contains two lambdas which facilitate zero downtime removal of container instances from an ECS cluster, for example during scale-ins or rolling cluster updates. See [this blog post](https://devblog.xero.com/automating-ecs-cluster-upgrades-with-cloudformation-and-lambda-2b4f1bec575d) for the full solution overview.
 
 ## Drain lambda
 
