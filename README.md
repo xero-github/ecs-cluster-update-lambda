@@ -35,7 +35,7 @@ This gif, captured from [excellent presentation](https://www.slideshare.net/mcal
 
 ECS Task Placement Constraints allow us to specify rules which considered during task placement. For example, we can constrain the task to only run on given instance types. We can also specify other parameters, such as tags, and only allow task placement on instances which don't have a certain tag. The complete process looks like this:
 
-1. All ECS tasks that we care about are constrained to instances which either don't have the tag `drain`, or don't have it set to `true` (this approach was first suggested in [this issue](https://github.com/aws/amazon-ecs-agent/issues/672https://github.com/aws/amazon-ecs-agent/issues/672#issuecomment-345930571) in the ECS agent repository). Here's a Terraform snippet which achieves this:
+1. All ECS tasks that we care about are constrained to instances which either don't have the tag `drain`, or don't have it set to `true` (this approach was first suggested in [this issue](https://github.com/aws/amazon-ecs-agent/issues/672#issuecomment-345930571) in the ECS agent repository). Here's a Terraform snippet which achieves this:
 
 ``` javascript
 placement_constraints {
