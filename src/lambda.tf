@@ -16,6 +16,7 @@ resource "aws_lambda_function" "drain_lambda" {
   handler          = "drain.handler"
   runtime          = "python3.6"
   timeout          = 300
+  tags             = "${var.tags}"
 }
 
 ##############################################################
@@ -36,4 +37,5 @@ resource "aws_lambda_function" "tag_lambda" {
   handler          = "tag.handler"
   runtime          = "python3.6"
   timeout          = 300
+  tags             = "${var.tags}"
 }
