@@ -7,3 +7,11 @@ variable "drain_lambda_name" {
 variable "tag_lambda_name" {
   default = "tag-ecs-lambda"
 }
+
+variable "tags" {
+  type = "map"
+
+  default = {
+    created-by = "terraform"
+  }
+}
