@@ -81,6 +81,10 @@ def handler(event, context):
     stack_name = event['StackName']
     instance_ids = get_instance_ids_by_tag(stack_name)
 
+    if not instance_ids:
+        logger.info('No instances to drain in this ASG, aborting operation')
+        return
+
     drain = event['Drain']
     set_drain_tag(instance_ids, drain)
 
