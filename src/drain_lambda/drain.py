@@ -33,9 +33,11 @@ def stop_daemon_tasks(cluster_arn, container_instance_arn, task_arns):
             arn:aws:ecs:us-east-1:111111111111:cluster/default
         container_instance_arn (str): container instance ARN, e.g.
             arn:aws:ecs:us-east-1:111111111111:container-instance/00c4a1c9-0c10-498b-b8c8-d5dc44c61ee0
+            or for newer stacks or if you have opted into the longer resource names
+            arn:aws:ecs:us-east-1:111111111111:container-instance/ClusterName/00c4a1c9-0c10-498b-b8c8-d5dc44c61ee0
         task_arns (list): ARNs of all tasks still running on the instance
     """
-    short_arn = container_instance_arn.split('/')[1]
+    short_arn = container_instance_arn.split('/')[-1]
     logger.info('Stopping default tasks on instance %s...',
                 short_arn)
 
@@ -246,7 +248,7 @@ def handler(event, context):
                 'Iteration': iteration
             })
         subject = 'Draining instance {}'.format(
-            container_instance_arn.split('/')[1])
+            container_instance_arn.split('/')[-1])
         publish_to_sns(message, subject, topic_arn)
         return
     else:
